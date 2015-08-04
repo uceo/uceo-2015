@@ -1,0 +1,11 @@
+/edx/app/edxapp/lms.auth.json
+/edx/app/edxapp/cms.auth.json
+/edx/app/edxapp/lms.env.json
+/edx/app/edxapp/cms.env.json
+/edx/app/edxapp/edx-platform/lms/envs/common.py
+/edx/app/edxapp/edx-platform/cms/envs/common.py
+*.log
+*.log.*
+var/mongo/mongodb/journal/*
+app/nginx/sites-available/*
+
