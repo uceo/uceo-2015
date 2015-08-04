@@ -1,0 +1,2 @@
+<%! from django.utils.translation import ugettext as _ %>
+${_("Permohonan untuk merubah email akun {platform_name}").format(platform_name=settings.PLATFORM_NAME)}

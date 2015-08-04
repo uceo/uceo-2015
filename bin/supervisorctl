@@ -1,0 +1,2 @@
+#!/bin/bash
+sudo -u www-data /edx/app/supervisor/venvs/supervisor/bin/supervisorctl -c /edx/app/supervisor/supervisord.conf $*

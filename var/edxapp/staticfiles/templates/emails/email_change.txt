@@ -1,0 +1,25 @@
+<%! from django.utils.translation import ugettext as _ %>
+<%namespace file="../main.html" import="stanford_theme_enabled" />
+${_("Kami telah menerima permohonan untuk mengubah e-mail yang digunakan dalam"
+    " akun{platform_name} dari {old_email} ke {new_email}. "
+    "Jika hal ini benar, silahkan konfirmasi email baru anda dengan menuju "
+    ":").format(platform_name=settings.PLATFORM_NAME, old_email=old_email, new_email=new_email)}
+
+% if is_secure:
+ https://${ site }/email_confirm/${ key }
+% else:
+ http://${ site }/email_confirm/${ key }
+% endif
+
+## TODO: fix this ugly hack
+% if stanford_theme_enabled():
+  ${_("If you didn't request this, you don't need to do anything; you won't "
+      "receive any more email from us. Please do not reply to this e-mail; "
+      "if you require assistance, check the about section of the "
+      "{platform_name} Courses web site.").format(platform_name=settings.PLATFORM_NAME)}
+% else:
+  ${_("Jika anda tidak mengajukan permintaan perubahan email, anda tidak harus melakukan apapun, anda tidak akan "
+      "menerima email lagi dari kami. Dimohon jangan membalas email ini, "
+      "Jika anda memerlukan bantuan, mohon melihat bagian Bantuan dari "
+      "halaman situs {platform_name}.").format(platform_name=settings.PLATFORM_NAME)}
+% endif

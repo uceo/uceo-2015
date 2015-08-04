@@ -1,0 +1,207 @@
+// openassessment: utilities - shame
+// ====================
+
+// NOTES: use for any bad-form/orphaned scss that knowingly violate edX FED architecture/standards (see - http://csswizardry.com/2013/04/shame-css)
+
+.openassessment {
+
+  // --------------------
+  // LMS countermeasures
+  // --------------------
+  // rules to overcome any poorly defined, scoped, or architected edX LMS-based CSS. Ideally this file will be removed when the LMS Front End is re-visited.
+
+  // headers
+  .self-assessment__display__header, .peer-assessment__display__header, .step__header {
+    margin-bottom: 0 !important;
+    border-radius: 0 !important;
+    padding-bottom: 0 !important;
+    font-size: inherit !important;
+    border-bottom: none !important;
+  }
+
+  span {
+    line-height: normal;
+  }
+
+  h2 {
+    text-transform: none;
+    letter-spacing: normal;
+  }
+
+  // step header
+  .openassessment__steps .openassessment__steps__step .step__header {
+
+    .step__deadline {
+      color: $heading-secondary-color;
+    }
+
+    // step title/name
+    h2.step__title {
+      margin-top: 0 !important;
+      @include text-align(left);
+
+      @include media($bp-m) {
+        margin-bottom: ($baseline-v/2);
+      }
+
+      @include media($bp-ds) {
+        @include bidi-span-columns(4 of 6);
+      }
+
+      @include media($bp-dm) {
+        @include bidi-span-columns(8 of 12);
+      }
+
+      @include media($bp-dl) {
+        @include bidi-span-columns(8 of 12);
+      }
+
+      @include media($bp-dx) {
+        @include bidi-span-columns(9 of 12);
+      }
+
+      .step__label {
+        text-transform: none;
+        letter-spacing: normal;
+      }
+
+      .step__counter, .wrapper--copy {
+        display: inline-block;
+        vertical-align: middle;
+      }
+
+      // step counter
+      .step__counter {
+
+        // increment: show numbers using parent list counter
+        &:before {
+          @extend %hd-2;
+          @extend %t-strong;
+          content: counter(item, decimal);
+          counter-increment: item;
+          color: $color-decorative-tertiary;
+        }
+      }
+    }
+  }
+
+  .step__status {
+
+  }
+
+  .step__status__value {
+    line-height: 0;
+  }
+
+
+
+  .list--actions {
+    list-style: none !important;
+    @include padding-left(0);
+    text-indent: 0 !important;
+
+    li {
+      margin-bottom: 0 !important;
+      margin-top: 5px !important;
+    }
+
+    button, .button, .action {
+
+      span {
+        color: inherit;
+      }
+    }
+  }
+
+  span {
+    color: inherit;
+  }
+
+  .ui-toggle-visibility .ui-toggle-visibility__control, .ui-toggle-visibility .ui-toggle-visibility__control .step__label {
+    color: $action-primary-color;
+
+    &:hover, &:focus {
+      color: $action-primary-color-focus;
+    }
+
+    &:active, &.is--current {
+      color: $action-primary-color-active;
+    }
+  }
+
+  // peer assessment
+  .step--peer-assessment .list--peer-assessments {
+    list-style: none outside none !important;
+    @include padding-left(0);
+  }
+
+  // self assessment
+
+  .self-assessment__display__title, .peer-assessment__display__title {
+    margin-bottom: ($baseline-v/2) !important;
+    color: $heading-secondary-color !important;
+  }
+
+  // shown submission/results
+  .question__answers {
+    @include padding-left(0);
+  }
+
+
+  .step--grade .step__title {
+    width: 100% !important;
+
+    .wrapper--copy {
+      display: block !important;
+    }
+  }
+
+  // actions
+  .action--submit, .action--save {
+    text-shadow: none !important;
+    box-shadow: none !important;
+  }
+
+  // messages
+  .message p {
+    color: inherit;
+  }
+
+  // --------------------
+  // Studio countermeasures
+  // --------------------
+  // rules to overcome any poorly defined, scoped, or architected edX Studio problem preview/rendering CSS.
+
+  .ico {
+    font-style: normal;
+  }
+
+  .step__title .step__deadline {
+    letter-spacing: normal;
+    text-transform: none;
+  }
+
+  .openassessment__steps__step .step__header .step__title {
+    margin-bottom: 0;
+  }
+
+
+  // --------------------
+  // needed overrides
+  // --------------------
+  .ui-hint:after {
+    @extend %copy-4;
+    @extend %deco-shadow-down;
+  }
+
+  .is--collapsed {
+
+    .question__answers {
+      overflow: auto; // needed for ui-hints to show and for the document flow to clear
+    }
+  }
+
+  .ui-staff__title {
+    color: $copy-staff-color !important;
+  }
+}

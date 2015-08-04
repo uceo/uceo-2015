@@ -1,0 +1,19 @@
+/**
+ * uceo-identity
+ * ========================================================
+ * Custom base styles
+ * Last edited:[20150624] by Bram
+ */
+header.global .user { margin-top: 10px !important; }
+header.global .row {margin-top: 13px;}
+header.global .user>.primary>a {
+  border: none !important; padding: 0.5em 0.8em !important;
+  background: #91a83a; color: white; text-shadow: none;
+}
+header.global .user>.primary>.dropdown-menu {
+  left: inherit;
+}
+
+.dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus {
+  background: none !important;
+}

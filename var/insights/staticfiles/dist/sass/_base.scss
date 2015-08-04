@@ -1,0 +1,462 @@
+// app styling: base
+// ====================
+// NOTE: used for any basic styling or overriding that isn't covered by Bootstrap + theming
+
+// + basics
+// + extends
+// + nav + header
+// + ui: sections
+// + ui: data-summary
+// + ui: data-table
+// + view: dashboard
+// + view: system
+
+@import "mixins";
+
+// basics
+// --------------------
+html {
+  height: 100%;
+}
+
+a {
+  @include transition(color ease-in-out .25s);
+}
+
+
+// removes the outline around links when hovering
+a {
+  &:active, &:hover {
+    outline: none;
+  }
+}
+
+// removes the outline around nav links when hovering
+.nav > li > a {
+  @extend a;
+}
+
+hr.has-emphasis {
+  margin-top: $padding-base-vertical;
+  border-color: $gray-dark;
+}
+
+// extends
+// --------------------
+%hd-titlecased {  // titlecased heading
+  font-family: $f-sans-serif-alt;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+}
+
+%ui-box { // visual emphasis/grouping box
+  border-radius: 3px;
+  box-shadow: 0 1px 1px $shadow-l1;
+  padding: $padding-large-vertical $padding-large-horizontal;
+  border: 1px solid $gray-l2;
+  background: $white-t;
+}
+
+%brand-app {
+  @extend %hd-titlecased;
+  display: inline-block;
+  vertical-align: middle;
+  color: $edx-blue-s3;
+  font-weight: 600;
+  font-family: 'Avenir Next', Helvetica, Arial, sans-serif;
+}
+
+// nav + header
+// --------------------
+.navbar {
+  margin-bottom: 0; // Get rid of Bootstrap's default margin. Many of our pages have a secondary navbar that needs to sit right below the main navbar.
+}
+
+.navbar-brand {
+  padding: 25px 50px; // needed for logo to render properly
+
+  .navbar-brand-app {
+    @include transition(color ease-in-out .25s);
+    @extend %hd-titlecased;
+    @extend %brand-app;
+
+    // STATE: hover
+    &:hover, &:active {
+      color: $link-color;
+    }
+  }
+}
+
+.navbar-link,
+.dropdown-menu .link-label {
+  font-weight: 600;
+  font-size: 16px;
+  font-family: $f-sans-serif;
+}
+
+.navbar-link {
+  .fa-caret-down {
+    margin-left: 5px;
+  }
+
+  .ico-user {
+    margin-right: 5px;
+  }
+}
+
+// OVERRIDE: dropdown positioning
+.navbar .dropdown .dropdown-menu {
+  top: 80%;
+  width: 100%;
+
+  a {
+    padding: 10px 15px;
+  }
+}
+
+// OVERRIDE: adding animations to open dropdowns
+.dropdown, .btn-group {
+
+  .ico-indicator {
+    @include transition(all ease-in-out 0.25s);
+    vertical-align: middle;
+  }
+
+  &.open {
+
+    .ico-indicator {
+      @include rotate(-180deg);
+      transform-origin: 50% 50%;
+    }
+  }
+}
+
+// ui: views
+// --------------------
+.view-head {
+  margin-bottom: ($padding-large-vertical*2);
+}
+
+// ui: sections
+// --------------------
+.view-section {
+  margin-bottom: ($padding-large-vertical*4);
+
+  // CASE: last child
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  .section-heading {
+    margin-top: $padding-large-vertical;
+    margin-bottom: $padding-base-vertical;
+
+    &.bordered {
+      border-bottom: $edx-gray-l1 1px solid;
+      padding-bottom: $padding-base-vertical;
+      margin-bottom: $padding-large-vertical;
+    }
+  }
+
+  // CASE: larger than small screen breakpoint
+  @media (min-width: $screen-sm-min) {
+
+    .section-heading {
+      @include clearfix();
+
+      .section-title {
+        float: left;
+      }
+
+      .section-heading-note, .section-actions {
+        float: right;
+      }
+
+      .section-title, .section-heading-note {
+        margin-bottom: 0;
+        margin-top: $font-size-base;
+      }
+
+      .section-heading-note {
+        color: $edx-gray;
+      }
+    }
+  }
+
+  .section-nav {
+    margin-bottom: ($padding-large-vertical*2);
+  }
+
+  .section-content {
+    margin-bottom: $padding-large-vertical*2;
+  }
+}
+
+// ui: tooltips
+// --------------------
+.tooltip {
+  border-radius: 2px;
+}
+
+.tooltip-inner {
+  min-width: ($tooltip-max-width/2);
+  padding: $padding-base-horizontal;
+}
+
+.ico-tooltip {
+  @include transition(color ease-in-out .50s);
+  color: $gray-lighter;
+  font-size: $font-size-large;
+
+  // STATE: hover
+  &:hover {
+    cursor: pointer;
+    color: $brand-primary;
+  }
+}
+
+// ui: filter nav
+// --------------------
+.nav-filters {
+
+  .filter {
+
+    .ico {
+      margin-left: $padding-small-horizontal;
+    }
+  }
+}
+
+// ui: data-summary
+// --------------------
+.summary-point {
+  @extend %ui-box;
+  @include scale(0.95);
+  @include transition(all ease-in-out .50s);
+  width: 100%;
+  margin-bottom: $padding-large-vertical;
+
+  .summary-point-wrapper {
+    text-align: center;
+    vertical-align: inherit;
+    position: relative;
+    padding-top: $padding-large-vertical * 2;
+    padding-bottom: $padding-large-vertical * 2;
+  }
+
+  .summary-point-note {
+    display: inline-block;
+    vertical-align: bottom;
+    width: 100%;
+  }
+
+  // STATE: hover + active
+  &:hover, &:active {
+    box-shadow: 0 1px 1px $edx-blue-t2;
+    @include scale(1.0);
+
+    .summary-point-number {
+      color: $brand-primary;
+    }
+  }
+
+  .summary-point-help {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  .summary-point-number {
+    @include transition(color ease-in-out .50s);
+    @extend h2;
+    margin-top: 0;
+  }
+
+  .summary-point-label {
+    @extend h4;
+  }
+}
+
+// ui: data-viz
+// --------------------
+.section-data-viz {
+
+  .viz-filter {
+    margin-bottom: $padding-large-vertical;
+
+    .viz-filter-label {
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: $padding-small-horizontal;
+    }
+
+    .filter {
+      display: inline-block;
+      vertical-align: middle;
+
+      .ico {
+        margin-left: $padding-small-horizontal;
+      }
+    }
+  }
+}
+
+// ui: data-table
+// --------------------
+.section-data-table {
+  @extend %ui-box;
+
+  tbody tr {
+    @include transition(background ease-in-out .25s);
+
+    // STATE: hover
+    &:hover, &:active {
+      background: $edx-blue-t0;
+    }
+  }
+}
+
+// Footer
+// --------
+.footer {
+  @include dark-background;
+
+  padding-bottom: ($padding-large-vertical);
+  font-size: $font-size-small;
+
+  .legal {
+    padding-top: ($padding-large-vertical*2);
+  }
+
+  .feedback {
+    border-top: solid 2px $edx-blue;
+    background-color: white;
+    text-align: center;
+    padding: ($padding-large-vertical*2) 0;
+  }
+}
+
+// view: dashboard
+// --------------------
+.view-dashboard {
+  .main {
+    padding: ($padding-large-vertical*2) ($padding-large-horizontal*3);
+  }
+
+  // CASE: larger than small screen breakpoint
+  @media (min-width: $screen-sm-min) {
+
+    .sidebar {
+      position: fixed;
+      top: ($navbar-height+1);
+      bottom: 0;
+      left: 0;
+      z-index: 1000;
+      display: block;
+      overflow-x: hidden;
+      overflow-y: auto; // scrollable contents if viewport is shorter than content.
+      border-right: 2px solid $black-t0;
+      padding: 0;
+    }
+  }
+}
+
+// view: system
+// (heavily relies upon Bootstrap cover - http://getbootstrap.com/examples/cover/)
+// --------------------
+.view-system {
+  height: 100%;
+  background-color: $gray-darker;
+  color: $white;
+  text-align: center;
+
+  // overriding element contained in base template
+  .container-fluid {
+    height: 100%;
+  }
+
+  // Extra markup and styles for table-esque vertical and horizontal centering
+  .site-wrapper {
+    display: table;
+    width: 100%;
+    height: 100%; /* For at least Firefox */
+    min-height: 100%;
+  }
+  .site-wrapper-inner {
+    display: table-cell;
+    vertical-align: top;
+  }
+  .cover-container {
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  // padding
+  .inner {
+    padding: $padding-large-vertical $padding-large-horizontal;
+  }
+
+  // header
+  .masthead {
+    margin-top: ($padding-large-vertical*4);
+  }
+
+  .masthead-brand {
+    margin-top: $padding-large-vertical;
+    margin-bottom: $padding-large-vertical;
+  }
+
+  .masthead-brand-app {
+    @extend %hd-titlecased;
+    @extend %brand-app;
+    font-size: $font-size-large;
+  }
+
+  // cover
+  .cover {
+    padding: 0 $padding-large-horizontal;
+  }
+  .cover .btn-lg {
+    padding: $padding-base-vertical $padding-large-horizontal;
+    font-weight: 600;
+  }
+
+  .error-code {
+    display: block;
+    margin-bottom: $padding-large-vertical;
+  }
+
+  .error-title {
+    display: block;
+  }
+
+  .error-copy {
+    color: $gray;
+  }
+
+  // affix and center
+  @media (min-width: 768px) {
+    .mastfoot {
+      position: fixed;
+      bottom: 0;
+    }
+
+    .site-wrapper-inner {
+      vertical-align: middle;
+    }
+
+    .masthead,
+    .mastfoot,
+    .cover-container {
+      width: 100%; // Must be percentage or pixels for horizontal alignment
+    }
+  }
+
+  @media (min-width: 992px) {
+    .masthead,
+    .mastfoot,
+    .cover-container {
+      width: 700px;
+    }
+  }
+}

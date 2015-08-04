@@ -1,0 +1,50 @@
+<%! from django.utils.translation import ugettext as _ %>
+${_("Terima kasih untuk mendaftarkan diri di {platform_name}.").format(platform_name=settings.PLATFORM_NAME)}
+
+${_("Untuk memulai, silahkan mengaktifkan akun anda dengan mengklik link di bawah"
+      " (anda juga dapat copy dan paste link ke alamat browser"
+      " ).").format(platform_name=settings.PLATFORM_NAME)}
+
+% if is_secure:
+  https://${ site }/activate/${ key }
+% else:
+  http://${ site }/activate/${ key }
+% endif
+
+% if settings.PLATFORM_NAME == "edX":
+${_("Activation ensures that you can register for {platform_name} courses and"
+      " access the courseware."
+      " If you require assistance, please use our web form at"
+      " {contact_us} or email {info_address}.").format(
+             platform_name=settings.PLATFORM_NAME,
+             contact_us='https://www.edx.org/contact-us',
+             info_address=settings.CONTACT_EMAIL
+      )}
+
+${_("We hope you enjoy learning with {platform_name}!").format(
+        platform_name=settings.PLATFORM_NAME
+)}
+
+${_("The {platform_name} Team").format(platform_name=settings.PLATFORM_NAME)}
+
+${_("Email ini dikirim secara otomatis oleh {site_name} karena seseorang telah "
+      "mencoba untuk membuat akun di {platform_name} menggunakan email ini. Jika anda "
+      "tidak mencoba untuk membuat akun dan tidak mengaktifkan akun ini, "
+      "anda tidak akan menerima email dari {platform_name}.").format(
+        platform_name=settings.PLATFORM_NAME,
+	site_name=settings.SITE_NAME
+)}
+
+% elif True:#stanford_theme_enabled():  ## Temporary hack until we develop a better way to adjust language
+${_("Jika anda tidak meminta hal ini terjadi, anda tidak harus melakukan apapun; anda tidak  akan"
+      "menerima email lagi dari kami. Dimohon jangan membalas email ini;"
+      "Jika anda memerlukan bantuan, mohon melihat bagian Bantuan dari"
+      "{platform_name} website.").format(platform_name=settings.PLATFORM_NAME)}
+% else:
+${_("Jika anda tidak meminta hal ini terjadi, anda tidak harus melakukan apapun; anda tidak  akan"
+      "Jika anda tidak meminta hal ini terjadi, anda tidak harus melakukan apapun; anda tidak  akan"
+      "menerima email lagi dari kami. Dimohon jangan membalas email ini;"
+      "Jika anda memerlukan bantuan, mohon melihat bagian Bantuan dari"
+      "{platform_name} website.").format(platform_name=settings.PLATFORM_NAME)}
+
+% endif

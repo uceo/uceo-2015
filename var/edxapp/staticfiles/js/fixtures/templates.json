@@ -1,0 +1,708 @@
+[
+    {
+        "template": "openassessmentblock/oa_base.html",
+        "context": {
+            "show_staff_debug_info": false,
+            "title": "Test title",
+            "question": "Test prompt",
+            "rubric_criteria": [],
+            "rubric_assessments": [
+                {
+                    "name": "submission",
+                    "class_id": "openassessment__response",
+                    "navigation_text": "Your response to this problem",
+                    "title": "Your Response"
+                },
+                {
+                    "name": "peer-assessment",
+                    "class_id": "openassessment__peer-assessment",
+                    "navigation_text": "Your assessment(s) of peer responses",
+                    "title": "Assess Peers' Responses"
+                },
+                {
+                    "name": "self-assessment",
+                    "class_id": "openassessment__self-assessment",
+                    "navigation_text": "Your assessment of your response",
+                    "title": "Assess Your Response"
+                },
+                {
+                    "name": "grade",
+                    "class_id": "openassessment__grade",
+                    "navigation_text": "Your grade for this problem",
+                    "title": "Your Grade:"
+                },
+                {
+                    "name": "leaderboard",
+                    "class_id": "openassessment__leaderboard",
+                    "navigation_text": "A leaderboard for the top submissions",
+                    "title": "Leaderboard:"
+                }
+            ]
+        },
+        "output": "oa_base.html"
+    },
+    {
+        "template": "openassessmentblock/oa_base.html",
+        "context": {
+            "show_staff_debug_info": true,
+            "title": "Test title",
+            "question": "Test prompt",
+            "rubric_criteria": [],
+            "rubric_assessments": [
+                {
+                    "name": "submission",
+                    "class_id": "openassessment__response",
+                    "navigation_text": "Your response to this problem",
+                    "title": "Your Response"
+                },
+                {
+                    "name": "peer-assessment",
+                    "class_id": "openassessment__peer-assessment",
+                    "navigation_text": "Your assessment(s) of peer responses",
+                    "title": "Assess Peers' Responses"
+                },
+                {
+                    "name": "self-assessment",
+                    "class_id": "openassessment__self-assessment",
+                    "navigation_text": "Your assessment of your response",
+                    "title": "Assess Your Response"
+                },
+                {
+                    "name": "grade",
+                    "class_id": "openassessment__grade",
+                    "navigation_text": "Your grade for this problem",
+                    "title": "Your Grade:"
+                },
+                {
+                    "name": "leaderboard",
+                    "class_id": "openassessment__leaderboard",
+                    "navigation_text": "A leaderboard for the top submissions",
+                    "title": "Leaderboard:"
+                }
+            ]
+        },
+        "output": "oa_base_course_staff.html"
+    },
+    {
+        "template": "openassessmentblock/response/oa_response.html",
+        "context": {
+            "saved_response": "",
+            "save_status": "This response has not been saved.",
+            "submit_enabled": false,
+            "submission_due": ""
+        },
+        "output": "oa_response.html"
+    },
+    {
+        "template": "openassessmentblock/student_training/student_training.html",
+        "context": {
+            "training_essay": "My special essay.",
+            "training_rubric": {
+                "criteria": [
+                    {
+                        "name": "Criterion 1",
+                        "prompt": "Prompt 1",
+                        "order_num": 0,
+                        "feedback": "optional",
+                        "options": [
+                            {
+                                "order_num": 0,
+                                "points": 0,
+                                "name": "Poor"
+                            },
+                            {
+                                "order_num": 1,
+                                "points": 1,
+                                "name": "Fair"
+                            },
+                            {
+                                "order_num": 2,
+                                "points": 2,
+                                "name": "Good"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Criterion 2",
+                        "prompt": "Prompt 2",
+                        "order_num": 1,
+                        "options": [
+                            {
+                                "order_num": 0,
+                                "points": 0,
+                                "name": "Poor"
+                            },
+                            {
+                                "order_num": 1,
+                                "points": 1,
+                                "name": "Fair"
+                            },
+                            {
+                                "order_num": 2,
+                                "points": 2,
+                                "name": "Good"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Criterion 3",
+                        "prompt": "Prompt 3",
+                        "order_num": 2,
+                        "feedback": "optional",
+                        "options": [
+                            {
+                                "order_num": 0,
+                                "points": 0,
+                                "name": "Poor"
+                            },
+                            {
+                                "order_num": 1,
+                                "points": 1,
+                                "name": "Fair"
+                            },
+                            {
+                                "order_num": 2,
+                                "points": 2,
+                                "name": "Good"
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        "output": "oa_student_training.html"
+    },
+    {
+        "template": "openassessmentblock/self/oa_self_assessment.html",
+        "context": {
+            "rubric_criteria": [
+                {
+                    "name": "Criterion 1",
+                    "prompt": "Prompt 1",
+                    "order_num": 0,
+                    "feedback": "optional",
+                    "options": [
+                        {
+                            "order_num": 0,
+                            "points": 0,
+                            "name": "Poor"
+                        },
+                        {
+                            "order_num": 1,
+                            "points": 1,
+                            "name": "Fair"
+                        },
+                        {
+                            "order_num": 2,
+                            "points": 2,
+                            "name": "Good"
+                        }
+                    ]
+                },
+                {
+                    "name": "Criterion 2",
+                    "prompt": "Prompt 2",
+                    "order_num": 1,
+                    "options": [
+                        {
+                            "order_num": 0,
+                            "points": 0,
+                            "name": "Poor"
+                        },
+                        {
+                            "order_num": 1,
+                            "points": 1,
+                            "name": "Fair"
+                        },
+                        {
+                            "order_num": 2,
+                            "points": 2,
+                            "name": "Good"
+                        }
+                    ]
+                },
+                {
+                    "name": "Criterion 3",
+                    "prompt": "Prompt 3",
+                    "order_num": 2,
+                    "feedback": "optional",
+                    "options": [
+                        {
+                            "order_num": 0,
+                            "points": 0,
+                            "name": "Poor"
+                        },
+                        {
+                            "order_num": 1,
+                            "points": 1,
+                            "name": "Fair"
+                        },
+                        {
+                            "order_num": 2,
+                            "points": 2,
+                            "name": "Good"
+                        }
+                    ]
+                }
+            ],
+            "self_submission": {}
+        },
+        "output": "oa_self_assessment.html"
+    },
+    {
+        "template": "openassessmentblock/peer/oa_peer_assessment.html",
+        "context": {
+            "rubric_criteria": [
+                {
+                    "name": "Criterion 1",
+                    "prompt": "Prompt 1",
+                    "order_num": 0,
+                    "feedback": "optional",
+                    "options": [
+                        {
+                            "order_num": 0,
+                            "points": 0,
+                            "name": "Poor"
+                        },
+                        {
+                            "order_num": 1,
+                            "points": 1,
+                            "name": "Fair"
+                        },
+                        {
+                            "order_num": 2,
+                            "points": 2,
+                            "name": "Good"
+                        }
+                    ]
+                },
+                {
+                    "name": "Criterion 2",
+                    "prompt": "Prompt 2",
+                    "order_num": 1,
+                    "options": [
+                        {
+                            "order_num": 0,
+                            "points": 0,
+                            "name": "Poor"
+                        },
+                        {
+                            "order_num": 1,
+                            "points": 1,
+                            "name": "Fair"
+                        },
+                        {
+                            "order_num": 2,
+                            "points": 2,
+                            "name": "Good"
+                        }
+                    ]
+                },
+                {
+                    "name": "Criterion 3",
+                    "prompt": "Prompt 3",
+                    "order_num": 2,
+                    "feedback": "optional",
+                    "options": [
+                        {
+                            "order_num": 0,
+                            "points": 0,
+                            "name": "Poor"
+                        },
+                        {
+                            "order_num": 1,
+                            "points": 1,
+                            "name": "Fair"
+                        },
+                        {
+                            "order_num": 2,
+                            "points": 2,
+                            "name": "Good"
+                        }
+                    ]
+                }
+            ]
+        },
+        "output": "oa_peer_assessment.html"
+    },
+    {
+        "template": "openassessmentblock/peer/oa_peer_complete.html",
+        "context": {},
+        "output": "oa_peer_complete.html"
+    },
+    {
+        "template": "openassessmentblock/grade/oa_grade_complete.html",
+        "context": {
+            "score": "",
+            "feedback_text": "",
+            "student_submission": "",
+            "peer_assessments": [
+                {
+                    "submission_uuid": "52d2158a-c568-11e3-b9b9-28cfe9182465",
+                    "points_earned": 5,
+                    "points_possible": 6,
+                    "rubric": {
+                        "criteria": [
+
+                            {
+                                "name": "Criterion 1",
+                                "prompt": "Prompt 1",
+                                "order_num": 0,
+                                "feedback": "optional",
+                                "options": [
+                                    {
+                                        "order_num": 2,
+                                        "points": 2,
+                                        "name": "Good"
+                                    }
+                                ],
+                                "points_possible": 2
+                            },
+                            {
+                                "name": "Criterion 2",
+                                "prompt": "Prompt 2",
+                                "order_num": 1,
+                                "options": [
+                                    {
+                                        "order_num": 1,
+                                        "points": 1,
+                                        "name": "Fair"
+                                    }
+                                ],
+                                "points_possible": 2
+                            },
+                            {
+                                "name": "Criterion 3",
+                                "prompt": "Prompt 3",
+                                "order_num": 2,
+                                "feedback": "optional",
+                                "options": [
+                                    {
+                                        "order_num": 2,
+                                        "points": 2,
+                                        "name": "Good"
+                                    }
+                                ],
+                                "points_possible": 2
+                            }
+                        ]
+                    }
+                }
+            ],
+            "self_assessment": {},
+            "rubric_criteria": [],
+            "has_submitted_feedback": false
+        },
+        "output": "oa_grade_complete.html"
+    },
+    {
+        "template": "openassessmentblock/edit/oa_edit.html",
+        "context": {
+            "prompt": "How much do you like waffles?",
+            "title": "The most important of all questions.",
+            "submission_start": "2014-01-02T12:15",
+            "submission_due": "2014-10-01T04:53",
+            "leaderboard_show": 12,
+            "criteria": [
+                {
+                    "name": "criterion_1",
+                    "label": "Criterion with two options",
+                    "prompt": "Prompt for criterion with two options",
+                    "order_num": 0,
+                    "feedback": "disabled",
+                    "options": [
+                        {
+                            "order_num": 0,
+                            "points": 1,
+                            "name": "option_1",
+                            "label": "Fair",
+                            "explanation": "Fair explanation"
+                        },
+                        {
+                            "order_num": 1,
+                            "points": 2,
+                            "name": "option_2",
+                            "label": "Good",
+                            "explanation": "Good explanation"
+                        }
+                    ],
+                    "points_possible": 2
+                },
+                {
+                    "name": "criterion_2",
+                    "label": "Criterion with no options",
+                    "prompt": "Prompt for criterion with no options",
+                    "order_num": 0,
+                    "options": [],
+                    "feedback": "required",
+                    "points_possible": 0
+                },
+                {
+                    "name": "criterion_3",
+                    "label": "Criterion with optional feedback",
+                    "prompt": "Prompt for criterion with optional feedback",
+                    "order_num": 2,
+                    "feedback": "optional",
+                    "options": [
+                        {
+                            "order_num": 0,
+                            "points": 2,
+                            "name": "option_1",
+                            "label": "Good",
+                            "explanation": "Good explanation"
+                        }
+                    ],
+                    "points_possible": 2
+                }
+            ],
+            "assessments": {
+                "peer_assessment": {
+                    "start": "2014-01-02T00:00",
+                    "due": "2014-01-03T00:00",
+                    "must_grade": 5,
+                    "must_be_graded_by": 3
+                },
+                "self_assessment": {
+                    "start": "2014-01-04T00:00",
+                    "due": "2014-01-05T00:00"
+                }
+            },
+            "editor_assessments_order": [
+                "student_training",
+                "peer_assessment",
+                "self_assessment",
+                "example_based_assessment"
+            ]
+        },
+        "output": "oa_edit.html"
+    },
+    {
+        "template": "openassessmentblock/edit/oa_edit.html",
+        "context": {
+            "prompt": "Test prompt",
+            "title": "Test title",
+            "submission_start": "2014-01-1T10:00:00",
+            "submission_due": "2014-10-1T10:00:00",
+            "leaderboard_show": 12,
+            "criteria": [
+                {
+                    "name": "criterion_with_two_options",
+                    "label": "Criterion with two options",
+                    "prompt": "Criterion with two options prompt",
+                    "order_num": 0,
+                    "feedback": "disabled",
+                    "options": [
+                        {
+                            "order_num": 0,
+                            "points": 1,
+                            "name": "option_1",
+                            "label": "Fair",
+                            "explanation": "Fair explanation"
+                        },
+                        {
+                            "order_num": 1,
+                            "points": 2,
+                            "name": "option_2",
+                            "label": "Good",
+                            "explanation": "Good explanation"
+                        }
+                    ],
+                    "points_possible": 2
+                },
+                {
+                    "name": "criterion_no_options",
+                    "label": "Criterion with no options",
+                    "prompt": "Criterion with no options prompt",
+                    "order_num": 0,
+                    "options": [],
+                    "feedback": "required",
+                    "points_possible": 0
+                }
+            ],
+            "assessments": {
+                "training": {
+                    "examples": [
+                        {
+                            "answer": "Test answer",
+                            "criteria": [
+                                {
+                                    "name": "criterion_with_two_options",
+                                    "label": "Criterion with two options",
+                                    "prompt": "Criterion with two options prompt",
+                                    "order_num": 0,
+                                    "feedback": "disabled",
+                                    "options": [
+                                        {
+                                            "order_num": 0,
+                                            "points": 1,
+                                            "name": "option_1",
+                                            "label": "Fair",
+                                            "explanation": "Fair explanation"
+                                        },
+                                        {
+                                            "order_num": 1,
+                                            "points": 2,
+                                            "name": "option_2",
+                                            "label": "Good",
+                                            "explanation": "Good explanation"
+                                        }
+                                    ],
+                                    "points_possible": 2,
+                                    "option_selected": "option_1"
+                                },
+                                {
+                                    "name": "criterion_no_options",
+                                    "label": "Criterion with no options",
+                                    "prompt": "Criterion with no options prompt",
+                                    "order_num": 0,
+                                    "options": [],
+                                    "feedback": "required",
+                                    "points_possible": 0,
+                                    "option_selected": ""
+                                }
+                            ]
+                        }
+                    ],
+                    "template": {
+                        "answer": "",
+                        "criteria": [
+                            {
+                                "name": "criterion_with_two_options",
+                                "label": "Criterion with two options",
+                                "prompt": "Criterion with two options prompt",
+                                "order_num": 0,
+                                "feedback": "disabled",
+                                "options": [
+                                    {
+                                        "order_num": 0,
+                                        "points": 1,
+                                        "name": "option_1",
+                                        "label": "Fair",
+                                        "explanation": "Fair explanation"
+                                    },
+                                    {
+                                        "order_num": 1,
+                                        "points": 2,
+                                        "name": "option_2",
+                                        "label": "Good",
+                                        "explanation": "Good explanation"
+                                    }
+                                ],
+                                "points_possible": 2,
+                                "option_selected": ""
+                            },
+                            {
+                                "name": "criterion_no_options",
+                                "label": "Criterion with no options",
+                                "prompt": "Criterion with no options prompt",
+                                "order_num": 0,
+                                "options": [],
+                                "feedback": "required",
+                                "points_possible": 0,
+                                "option_selected": ""
+                            }
+                        ]
+                    }
+                },
+                "student_training": {
+                    "start": "",
+                    "due": ""
+                },
+                "peer_assessment": {
+                    "start": "2014-01-02T00:00",
+                    "due": "2020-01-01T12:34",
+                    "must_grade": 5,
+                    "must_be_graded_by": 3
+                }
+            },
+            "editor_assessments_order": [
+                "student_training",
+                "peer_assessment",
+                "self_assessment",
+                "example_based_assessment"
+            ]
+        },
+        "output": "oa_edit_student_training.html"
+    },
+    {
+        "template": "openassessmentblock/staff_debug/staff_debug.html",
+        "context": {
+            "status_counts": {
+                "self": 1,
+                "peer": 2,
+                "waiting": 3,
+                "done": 4
+            },
+            "num_submissions": 10,
+            "item_id": "test_item",
+            "step_dates": [
+                {
+                    "step": "submission",
+                    "start": "2014-01-01",
+                    "due": "N/A"
+                },
+                {
+                    "step": "peer",
+                    "start": "2014-02-02",
+                    "due": "N/A"
+                },
+                {
+                    "step": "self",
+                    "start": "2014-03-03",
+                    "due": "2015-04-05"
+                }
+            ]
+        },
+        "output": "oa_staff_info.html"
+    },
+    {
+        "template": "openassessmentblock/peer/oa_peer_assessment.html",
+        "context": {
+            "rubric_criteria": [
+                {
+                    "name": "vocabulary",
+                    "prompt": "vocabulary",
+                    "order_num": 0,
+                    "feedback": "optional",
+                    "options": [
+                        {
+                            "order_num": 0,
+                            "points": 0,
+                            "name": "Bad"
+                        },
+                        {
+                            "order_num": 1,
+                            "points": 1,
+                            "name": "Good"
+                        }
+                    ]
+                },
+                {
+                    "name": "grammar",
+                    "prompt": "grammar",
+                    "order_num": 1,
+                    "options": [
+                        {
+                            "order_num": 0,
+                            "points": 0,
+                            "name": "Bad"
+                        },
+                        {
+                            "order_num": 1,
+                            "points": 1,
+                            "name": "Good"
+                        }
+                    ]
+                },
+                {
+                    "name": "feedback_only",
+                    "prompt": "Feedback only, no options!",
+                    "order_num": 2,
+                    "feedback": "required",
+                    "options": []
+                }
+            ]
+        },
+        "output": "oa_rubric.html"
+    }
+]

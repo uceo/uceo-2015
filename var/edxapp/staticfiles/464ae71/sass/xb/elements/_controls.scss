@@ -1,0 +1,209 @@
+// xblock: elements - controls
+// ====================
+
+// NOTES:
+// * all UI-based controls that can be extends in any xlbock
+
+
+// --------------------
+// links
+// --------------------
+// links - copy
+%link-copy {
+  @include transition(color $tmg-f1 ease-in-out, border $tmg-f1 ease-in-out);
+  border-bottom: 1px solid transparent;
+  color: $action-primary-color;
+  text-decoration: none;
+
+  &:hover, &:focus {
+    color: $action-primary-color-focus;
+    border-color: $action-primary-color-focus;
+  }
+
+  &:active, &.is--current {
+    color: $action-primary-color-active;
+    border-color: $action-primary-color-active;
+  }
+}
+
+// links - meta
+%link-meta {
+  @include transition(color $tmg-f1 ease-in-out, border $tmg-f1 ease-in-out);
+  border-bottom: 1px solid transparent;
+  color: $action-secondary-color;
+  text-decoration: none;
+
+  &:hover, &:focus {
+    color: $action-secondary-color-focus;
+    border-color: $action-secondary-color-focus;
+  }
+
+  &:active, &.is--current {
+    color: $action-secondary-color-active;
+    border-color: $action-secondary-color-active;
+  }
+}
+
+// links - page nav
+%link-nav-page {
+  @include transition(color $tmg-f1 ease-in-out, border $tmg-f1 ease-in-out);
+  display: block;
+  border-right: 1px solid solid $gray-l5;
+  padding: ($baseline-v/2) ($baseline-h/4);
+  color: $gray-l3;
+  font-family: $f-action;
+  text-decoration: none;
+
+  &:hover, &:active {
+    border-left-color: $action-secondary-color-focus;
+    color: $action-secondary-color-focus;
+  }
+}
+
+// --------------------
+// buttons
+// --------------------
+// buttons - archetypes
+%btn {
+  @include box-sizing(border-box);
+  @include transition(color 0.25s ease-in-out, background 0.25s ease-in-out, box-shadow 0.25s ease-in-out);
+  display: inline-block;
+  cursor: pointer;
+  text-decoration: none;
+
+  &:hover, &:active, &:focus {
+    text-decoration: none;
+  }
+
+  &.disabled, &[disabled], &.is--disabled {
+    cursor: default;
+    pointer-events: none;
+  }
+
+  // CASE: icons in buttons
+  .copy, .ico {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  .copy {
+    @include margin-right(($baseline-v/2));
+  }
+}
+
+%btn-pill {
+  @extend %btn;
+  border-radius: ($baseline-v/5);
+}
+
+%btn-rounded {
+  @extend %btn;
+  border-radius: ($baseline-v/2);
+}
+
+%btn-edged {
+  @extend %btn;
+  border-radius: ($baseline-v/10);
+}
+
+
+// buttons - primary (assuming dark bg/light copy)
+%btn--primary {
+  @extend %btn-pill;
+  @extend %t-strong;
+  padding: ($baseline-v/2) ($baseline-h);
+  background: $action-primary-color;
+  border: 1px solid shade($action-primary-color, 15%);
+  color: tint($action-primary-color, 90%);
+
+  .copy {
+    @extend %t-strong;
+  }
+
+  &:hover, &:active, &:focus {
+    background: $action-primary-color-focus;
+    border-color: $action-primary-color-focus;
+    color: tint($action-primary-color, 99%);
+  }
+
+  &.current, &.active {
+    background: $action-primary-color-active;
+    border-color: $action-primary-color-active;
+
+    &:hover, &:active, &:focus {
+
+    }
+  }
+
+  &.disabled, &.is--disabled, &[disabled] {
+    opacity: 0.4;
+  }
+}
+
+
+// buttons - secondary (assuming dark bg/light copy)
+%btn--secondary {
+  @extend %btn-pill;
+  @extend %t-strong;
+  padding: ($baseline-v/2) ($baseline-h);
+  background: $action-secondary-color;
+  border: 1px shade($action-secondary-color, 10%);
+  color: tint($action-secondary-color, 90%);
+
+  .copy {
+    @extend %t-strong;
+  }
+
+  &:hover, &:active, &:focus {
+    background: $action-secondary-color-focus;
+    border-color: $action-secondary-color-focus;
+    color: tint($action-secondary-color, 99%);
+  }
+
+  &.current, &.active {
+    background: $action-secondary-color-active;
+    border-color: $action-secondary-color-active;
+
+    &:hover, &:active, &:focus {
+
+    }
+  }
+
+  &.disabled, &.is--disabled, &[disabled] {
+    opacity: 0.4;
+  }
+}
+
+
+// buttons - tertiary (assuming dark bg/light copy)
+%btn--tertiary {
+  @extend %btn-edged;
+  @extend %t-strong;
+  padding: ($baseline-v/2) ($baseline-h/2);
+  background: $action-tertiary-color;
+  border: 1px solid shade($action-tertiary-color, 10%);
+  color: tint($action-tertiary-color, 90%);
+
+  .copy {
+    @extend %t-strong;
+  }
+
+  &:hover, &:active, &:focus {
+    background: $action-tertiary-color-focus;
+    border-color: $action-tertiary-color-focus;
+    color: tint($action-tertiary-color, 99%);
+  }
+
+  &.current, &.active {
+    background: $action-tertiary-color-active;
+    border-color: $action-tertiary-color-active;
+
+    &:hover, &:active, &:focus {
+
+    }
+  }
+
+  &.disabled, &.is-disabled, &[disabled] {
+    opacity: 0.5;
+  }
+}

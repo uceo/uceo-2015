@@ -1,0 +1,10 @@
+/**
+ * uceo-identity
+ * ========================================================
+ * Custom base styles
+ * Last edited:[20150624] by Bram
+ */
+
+.user a.user-link, .user a.dropdown {
+  border: 0; padding: 0.5em 0.8em;
+}

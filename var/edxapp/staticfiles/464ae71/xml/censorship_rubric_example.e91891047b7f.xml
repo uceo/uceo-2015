@@ -1,0 +1,87 @@
+<openassessment>
+    <title>
+        Censorship in Public Libraries
+    </title>
+    <rubric>
+        <prompt>
+            What do you think about censorship in libraries?
+
+            Read for conciseness, clarity of thought, and form.
+        </prompt>
+        <criterion>
+            <name>concise</name>
+            <prompt>How concise is it?</prompt>
+            <option points="0">
+                <name>The Bible</name>
+                <explanation></explanation>
+            </option>
+            <option points="1">
+                <name>Earnest Hemingway</name>
+                <explanation></explanation>
+            </option>
+            <option points="3">
+                <name>Matsuo Basho</name>
+                <explanation></explanation>
+            </option>
+        </criterion>
+        <criterion>
+            <name>clear-headed</name>
+            <prompt>How clear is the thinking?</prompt>
+            <option points="0">
+                <name>Eric</name>
+                <explanation></explanation>
+            </option>
+            <option points="1">
+                <name>John</name>
+                <explanation></explanation>
+            </option>
+            <option points="2">
+                <name>Ian</name>
+                <explanation></explanation>
+            </option>
+        </criterion>
+        <criterion>
+            <name>form</name>
+            <prompt>Lastly, how is its form? Punctuation, grammar, and spelling all count.</prompt>
+            <option points="0">
+                <name>IRC</name>
+                <explanation></explanation>
+            </option>
+            <option points="1">
+                <name>Real Email</name>
+                <explanation></explanation>
+            </option>
+            <option points="2">
+                <name>Old-timey letters</name>
+                <explanation></explanation>
+            </option>
+        </criterion>
+        <feedbackprompt>
+            Please provide additional free-form feedback on this submission.
+
+            This feedback is completely optional.
+        </feedbackprompt>
+    </rubric>
+    <assessments>
+        <assessment name="student-training">
+            <example>
+                <answer>Censorship is terrible. I don't like it at all.</answer>
+                <select criterion="concise" option="Matsuo Basho" />
+                <select criterion="clear-headed" option="Eric" />
+                <select criterion="form" option="IRC"/>
+            </example>
+            <example>
+                <answer>I love censorship.</answer>
+                <select criterion="concise" option="Matsuo Basho" />
+                <select criterion="clear-headed" option="Ian" />
+                <select criterion="form" option="Old-timey letters"/>
+            </example>
+        </assessment>
+        <assessment name="self-assessment" />
+        <assessment name="peer-assessment"
+                    start="2013-12-20T19:00-7:00"
+                    due="2014-12-21T22:22-7:00"
+                    must_grade="1"
+                    must_be_graded_by="1" />
+    </assessments>
+</openassessment>

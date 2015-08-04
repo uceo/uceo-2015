@@ -1,0 +1,10 @@
+/**
+ * uceo-identity
+ * ========================================================
+ * Custom base styles
+ * Last edited:[20150624] by Bram
+ */
+
+header.global .user>.primary>a {
+  border: none !important; padding: 0.5em 0.8em;
+}

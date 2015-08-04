@@ -1,0 +1,6 @@
+{
+  "name": "globalize-hello-world-node-npm",
+  "dependencies": {
+    "globalize": "1.x"
+  }
+}
