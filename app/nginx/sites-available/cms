@@ -15,7 +15,7 @@ server {
    # listen 18010 ;
   
  # server_name ~^((stage|prod)-)?studio.*;
-  server_name studio.*;
+  server_name *.*;
 
   access_log /edx/var/log/nginx/access.log p_combined;
   error_log /edx/var/log/nginx/error.log error;
