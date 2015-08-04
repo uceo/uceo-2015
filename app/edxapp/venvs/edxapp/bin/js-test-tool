@@ -1,0 +1,10 @@
+#!/edx/app/edxapp/venvs/edxapp/bin/python
+# EASY-INSTALL-ENTRY-SCRIPT: 'js-test-tool==0.1.5','console_scripts','js-test-tool'
+__requires__ = 'js-test-tool==0.1.5'
+import sys
+from pkg_resources import load_entry_point
+
+if __name__ == '__main__':
+    sys.exit(
+        load_entry_point('js-test-tool==0.1.5', 'console_scripts', 'js-test-tool')()
+    )

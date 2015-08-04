@@ -1,0 +1,2 @@
+devpi_server
+test_devpi_server

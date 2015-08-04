@@ -1,0 +1,158 @@
+<%! from django.utils.translation import ugettext as _ %>
+
+<%! 
+from django.core.urlresolvers import reverse 
+from courseware.courses import get_course_by_id, course_image_url, get_course_about_section
+from courseware.access import has_access
+%>
+<%inherit file="main.html" />
+<%namespace name='static' file='static_content.html'/>
+<%namespace file='main.html' import="login_query"/>
+
+<%! from microsite_configuration import microsite %>
+<%! from student.models import UserProfile %>
+<%! import third_party_auth %>
+<%! from third_party_auth import pipeline, provider %>
+
+<%
+  homepage_overlay_html = microsite.get_value('homepage_overlay_html')
+
+  ## To display a welcome video, change False to True, and add a YouTube ID (11 chars, eg "123456789xX") in the following line
+  show_homepage_promo_video = microsite.get_value('show_homepage_promo_video', False)
+  homepage_promo_video_youtube_id = microsite.get_value('homepage_promo_video_youtube_id', "your-youtube-id")
+
+  show_partners = microsite.get_value('show_partners', True)
+
+%>
+
+<script type="text/javascript">
+
+function showVideo() {
+  
+  var thevid=$('#thevideo');
+  thevid.css("display",'block'); 
+  $('#thevideo iframe')[0].src += "&autoplay=1";
+
+}
+
+function thirdPartySignin(event, url) {
+  event.preventDefault();
+  window.location.href = url;
+}
+
+var $root = $('html, body');
+$('a').click(function() {
+    var href = $.attr(this, 'href');
+    $root.animate({
+        scrollTop: $(href).offset().top
+    }, 500, function () {
+        window.location.hash = href;
+    });
+    return false;
+});
+
+</script>
+
+<section class="home">
+  <header>
+    <div class="outer-wrapper">
+      <div class="title">
+        <hgroup>
+          % if homepage_overlay_html:
+            ${homepage_overlay_html}
+          % else:
+            <h1><span>COURSES</span> for <span>ENTREPRENEURS</span></h1>
+            <h2>Program pembelajaran <b>Entrepreneurship</b> non-degree terbuka untuk umum dan <b>GRATIS</b></h2>
+          % endif
+        </hgroup>
+
+      </div>
+
+      % if show_homepage_promo_video:
+        <a href="#video-modal" class="media" rel="leanModal">
+          <div class="hero">
+            <div class="play-intro"></div>
+          </div>
+        </a>
+      % endif
+    </div>
+  </header>
+
+  <section class="container">
+    <div class="featured-course">
+      <h3 class="section-header">Featured Highlighted Courses</h3>
+      <div class="featured-video" onclick="showVideo();this.style.display='none';">
+        <img src="${static.url('themes/{theme_name}/images/video-overlay.jpg'.format(theme_name=settings.THEME_NAME))}" style="cursor:pointer" />
+      </div>
+      <div id="thevideo" style="display:none;">
+        <iframe width="100%" height="529" src="https://www.youtube.com/embed/icyumTKPJCo?rel=0&color=white&controls=1&showinfo=0" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <div class="faq" style="border-bottom-right-radius: 0">
+        <h3>Apa itu Berburu Peluang Usaha?</h3>
+        <p>Ketika kita hendak memulai usaha bisnis darimana kita terlebih dahulu memulainya? <b>DR (HC). Ir.Ciputra</b> pernah berkata “lebih baik kita bertengkar selama masa perencanaan daripada bertengkar selama masa pelaksanaan” dengan kata lain tuntaskan sebanyak mungkin pertanyaan dan permasalahan usaha bisnis sebelum usaha tsb dilakukan.</p>
+        <p>Ada 2 pesan yang ingin disampaikan melalui <b>Berburu Peluang Usaha</b>, pertama agar peluang bisnis itu jangan ditunggu tapi harus sengaja diburu. Kedua, orang yang berburu akan sengaja menyediakan waktu, sengaja menyiapkan peralatan, mencari dan memilih dengan awas dan waspada lalu melakukan eksekusi. Pola pikir dan pengalaman seperti inilah yang ingin kami bangun untuk para pembelajar UCEO untuk mata pembelajaran <b>Berburu Peluang Usaha</b>.</p>
+      </div>
+      <div class="faq" style="border-bottom-left-radius: 0">
+        <h3>Apa keuntungan ikut kuliah secara online ini?</h3>
+        <p>Kuliah berbasis online ini memberikan kesempatan bagi seluruh rakyat Indonesia untuk mendapatkan ilmu, teori, dan pengalaman hidup dari tokoh-tokoh ini secara langsung. Tidak ada lagi batasan waktu maupun jarak, sehingga siapapun dapat belajar ilmu yang terbaik.</p>
+        <p>Kuliah secara online juga memungkinkan Anda untuk belajar di waktu yang paling tepat bagi Anda, baik secara sendiri maupun bersama orang-orang lain di sekitar Anda yang ingin belajar bersama Anda. Dengan bergabung dalam forum diskusi kuliah ini, Anda juga dapat bertukar pikiran dengan peserta lainnya dari seluruh Indonesia.</p>
+        <p>Ikuti pula akun Instagram UCEO di <a href="http://instagram.com/ciputrauceo">@ciputrauceo</a> dan akun Twitter UCEO di <a href="http://twitter.com/ciputrauceo">@ciputrauceo</a> untuk mendapatkan informasi serta update terbaru dari perkuliahan ini.</p>
+      </div>
+      <div class="container">
+        <button type="submit" class="button button-primary" onclick=" window.location.assign('/register?course_id=course-v1%3AUCEO%2BBPU001%2B18052014&enrollment_action=enroll')">Daftar BPU Sekarang!</button>
+        <button type="submit" class="button button-primary fb-button" onclick="thirdPartySignin(event, '/auth/login/facebook/?auth_entry=register');"><span class="icon fa fa-facebook"></span>&nbsp;Daftar dengan Facebook</button>
+        <button type="submit" class="button button-primary google-button" onclick="thirdPartySignin(event, '/auth/login/google-oauth2/?auth_entry=register');"><span class="icon fa fa-google-plus"></span>&nbsp;Daftar dengan Google</button>
+      </div>
+    </div>
+    <section class="other-courses" id="other-courses">
+      <h3 class="section-header">Check out all UCEO Courses</h3>
+      <section class="highlighted-courses">
+        <section class="courses">
+            <ul class="courses-listing row">
+            % for i, course in enumerate(courses):
+              <li class="courses-listing-item col-xs-6 col-md-3">
+                <%include file="course.html" args="course=course" />
+              </li>
+            % endfor
+            </ul>
+          <div class="form-actions form-third-party-auth container">
+
+          <button type="submit" class="button button-primary" onclick=" window.location.assign('/register')">Daftar Sekarang!</button>
+          <button type="submit" class="button button-primary fb-button" onclick="thirdPartySignin(event, '/auth/login/facebook/?auth_entry=register');"><span class="icon fa fa-facebook"></span>&nbsp;Daftar dengan Facebook</button>
+          <button type="submit" class="button button-primary google-button" onclick="thirdPartySignin(event, '/auth/login/google-oauth2/?auth_entry=register');"><span class="icon fa fa-google-plus"></span>&nbsp;Daftar dengan Google</button>
+
+          </div>
+        </section>
+      </section>
+    </section>
+  </section>
+</section>
+
+<section id="video-modal" class="modal home-page-video-modal video-modal">
+  <div class="inner-wrapper">
+    <%
+      youtube_video_id = homepage_promo_video_youtube_id
+      if self.stanford_theme_enabled():
+        youtube_video_id = "2gmreZObCY4"
+    %>
+    <iframe width="640" height="360" src="//www.youtube.com/embed/${youtube_video_id}?showinfo=0" frameborder="0" allowfullscreen></iframe>
+  </div>
+</section>
+
+<%block name="js_extra">
+   <script type="text/javascript">
+      $(window).load(function() {
+         if(getParameterByName('next')) {
+              $('#login').trigger("click");
+         }
+      })
+   </script>
+</%block>
+
+% if show_signup_immediately is not UNDEFINED:
+  ## NOTE: This won't work in production, because anonymous views are cached, so it will
+  ## show either with or without this extra js for 3 minutes at a time.
+<script type="text/javascript">
+  $(window).load(function() {$('#signup_action').trigger("click");});
+</script>
+% endif

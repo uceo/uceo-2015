@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+set -x
+
+vpc_name=default_env-default_deployment
+log_directory=/edx/var/log/rabbitmq
+
+
+
+OLD_IFS=$IFS
+IFS=$'\n'
+vhosts=`/usr/sbin/rabbitmqctl list_vhosts | grep "^/"`
+for vhost in $vhosts; do
+  queues=`/usr/sbin/rabbitmqctl list_queues -p $vhost | awk 'NF==2{ print }'`
+  mkdir -p ${log_directory}/${vhost}
+  for queue in $queues; do
+    queue_name=`echo $queue | awk '{ print $1 }'`
+    echo $queue | sed 's/\s*/ /' | awk -v date="$(date)" -v vhost="$vhost" '{ print "date=\x27"date"\x27","vhost=\x27"vhost"\x27","queue=\x27"$1"\x27","length="$2}' >> ${log_directory}/${vhost}/${queue_name}.log
+  done
+done
+IFS=$OLD_IFS

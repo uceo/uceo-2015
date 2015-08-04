@@ -1,0 +1,255 @@
+header.global, header.global-new, header.global.slim {
+    .square(auto);
+    .navbar();
+    .navbar-default();
+
+    padding: 0;
+    border: 0 none;
+    border-bottom: solid 5px @color-button;
+    background-color: @color-primary;
+    margin-bottom: 0;
+    transition: all .2s ease-in;
+    box-shadow: none;
+    border-radius: 0 !important;
+
+    > nav {
+        .ionisx-container();
+
+        padding-top: 15px;
+        padding-bottom: 15px;
+
+        h1.logo {
+            margin: 0 30px 0 0;
+            padding: 0;
+            float: left;
+
+            &:before {
+                display: none;
+            }
+
+            a {
+                .size(@logo-img-width, 50px);
+                .text-hide();
+
+                background-image: url(@logo-img-path);
+                background-size: contain;
+                background-repeat: no-repeat;
+
+                @media (max-width: @screen-xs-max) {
+                    .size(@logo-sm-img-width, 50px);
+                }
+            }
+        }
+
+        h2 {
+            .square(auto);
+
+            font: inherit;
+            font-size: 0.9em;
+            margin: 0.9em 0 1.2em 0;
+            padding: 0;
+            text-shadow: none;
+            color: @color-background;
+
+            @media (max-width: @screen-sm-max) {
+                display: none;
+            }
+        }
+
+        .nav-global {
+            margin: 0.6em 0 0 0;
+
+            @media (max-width: @screen-xs-min) {
+                display: none;
+            }
+
+            a {
+                font: inherit;
+                font-weight: 500;
+                letter-spacing: inherit;
+                padding: 0;
+                color: @color-background;
+                text-transform: none;
+                border: 0 none;
+
+                &:hover {
+                    color: @white;
+                }
+
+                &:focus {
+                    color: @white;
+                    text-decoration: underline;
+                }
+
+                &.cta-register {
+                    display:none;
+                }
+            }
+        }
+
+        .nav-courseware {
+            margin: 0;
+
+            div {
+                margin: 0 5px 0 0;
+
+                &:last-child {
+                    margin: 0;
+                }
+            }
+
+            .mobile-register {
+                font-size: 1em;
+                a.daftar-sekarang { text-transform: uppercase; letter-spacing: 1px; font-weight: bold; color:@color-button}
+                a.daftar-sekarang:hover { color: lighten(@color-hover, 40%);}
+                display:none;
+                 @media (max-width: @screen-xs-max) {
+                    display: block;
+                    max-width: 100px;
+                }
+            }
+
+            .social-media-nav { 
+                margin-right: 1em;
+                line-height: 1.8em;
+                vertical-align: middle;
+                text-align: right;
+                span {
+                    font-size: 1em;
+                    a.daftar-sekarang { text-transform: uppercase; letter-spacing: 1px; font-weight: bold; color:@color-button}
+                    a.daftar-sekarang:hover { color: lighten(@color-hover, 40%);}
+                }
+                a, span { color: @white }
+                ul {font-style: italic;}
+                @media (max-width: @screen-xs-max) {
+                    display: none;
+                }
+            }
+
+            a {
+                &.cta-login, &.cta-register {
+                    .ionisx-hover-btn(@white, @color-button, @color-hover);
+                    text-transform: none;
+                }
+
+                &.cta-register {
+                    display: none;
+                }
+            }
+        }
+
+        ol.user {
+            margin: 0;
+
+            > li.primary {
+                display: inline-block;
+                float:right;
+            }
+            > li.primary > a {
+                .ionisx-hover-btn(@white, @color-button, @color-hover);
+
+                border-radius: 0 @default-border-radius @default-border-radius 0;
+
+                &.user-link {
+                    max-width: 140px;
+                    div {
+                        margin: 0;
+                        padding: 0;
+                    }
+                    @media (max-width: @screen-xs-max) {
+                        i {display: none; }
+                    }
+                }
+
+                &.dropdown.active {
+                    .ionisx-btn-hover(@color-hover, @white);
+                }
+
+                &.dropdown {
+                    padding: 1em 8px;
+                    border-left: none;
+                    border-radius: @default-border-radius 0 0 @default-border-radius;
+                    letter-spacing: normal;
+                }
+
+                > span.avatar {
+                    display: none;
+                    background: none;
+                }
+            }
+
+            ul.dropdown-menu {
+                .square(auto);
+
+                padding: 0;
+                z-index: 10;
+                top: 58px;
+                left: initial;
+                left: 0;
+                border-top: 0 none;
+                border-top-right-radius: 0;
+                background-color: @color-button;
+
+                &:before {
+                    display: block;
+                    border-top: solid 6px @color-button;
+                    border-right: solid 6px @color-button;
+                    left: 12px;
+                }
+
+                > li {
+                    transition: all .1s ease-in;
+                    border: 0 none;
+                    padding: 2px 8px;
+                    color: @white;
+
+                    > a {
+                        border: 0 none;
+                        outline: none;
+                        padding: 0;
+                        letter-spacing: normal;
+                        color: inherit;
+
+                        &:hover, &:focus, &:active {
+                            background: none;
+                            color: inherit;
+                        }
+                    }
+
+                    &:hover {
+                        background-color: @color-hover;
+                        color: @white;
+
+                        > a {
+                            color: inherit;
+                        }
+                    }
+                }
+            }
+
+            .social-media-nav { 
+                display: inline-block;
+                margin-right: 1em;
+                line-height: 1.8em;
+                vertical-align: middle;
+                span {font-size: 1.2em}
+                a, span { color: @white }
+                ul {font-style: italic;}
+                @media (max-width: @screen-xs-max) {
+                    display: none;
+                }
+
+                li { 
+                    display: inline-block;
+                    font-size: 2em;
+                    margin-top: 0.45em;
+                    a:hover {
+                        color: @color-button;
+                    }
+                }
+
+                
+            }
+        }
+    }
+}

@@ -1,0 +1,18 @@
+Metadata-Version: 1.0
+Name: analytics-python
+Version: 0.4.4
+Summary: The hassle-free way to integrate analytics into any python application.
+Home-page: https://github.com/segmentio/analytics-python
+Author: Segment.io
+Author-email: friends@segment.io
+License: MIT License
+Description: 
+        Segment.io is the simplest way to integrate analytics into your application.
+        One API allows you to turn on any other analytics service. No more learning
+        new APIs, repeated code, and wasted development time.
+        
+        This is the official python client that wraps the Segment.io REST API (https://segment.io).
+        
+        Documentation and more details at https://github.com/segmentio/analytics-python
+        
+Platform: UNKNOWN

@@ -1,0 +1,59 @@
+# This file is created and updated by ansible, edit at your peril
+
+		 
+export DATADOG_API_KEY="SPECIFY_KEY_HERE"
+		 
+export REQUESTS_CA_BUNDLE="/etc/ssl/certs/ca-certificates.crt"
+		 
+		 
+		 
+export RSYSLOG_ENABLED="yes"
+		 
+export NOTIFIER_ENV="Development"
+		 
+export NOTIFIER_DB_DIR="/edx/app/notifier/db"
+		 
+export FORUM_DIGEST_TASK_RATE_LIMIT="60/m"
+		 
+export SECRET_KEY="PUT_YOUR_SECRET_KEY_HERE"
+		 
+export BROKER_URL="django://"
+		 
+		 
+export CS_API_KEY="password"
+		 
+export LOG_LEVEL="INFO"
+		 
+export EMAIL_BACKEND="console"
+		 
+export LOGO_IMAGE_URL="http://localhost:8000/static/images/header-logo.png"
+		 
+export CS_URL_BASE="http://localhost:18080"
+		 
+		 
+export US_API_KEY="PUT_YOUR_API_KEY_HERE"
+		 
+export FORUM_DIGEST_EMAIL_SENDER="notifications@example.com"
+		 
+export FORUM_DIGEST_TASK_BATCH_SIZE="5"
+		 
+export FORUM_DIGEST_EMAIL_DESCRIPTION="A digest of unread content from course discussions you are following."
+		 
+export FORUM_DIGEST_TASK_INTERVAL="5"
+		 
+export EMAIL_USE_TLS="False"
+		 
+export EMAIL_PORT="25"
+		 
+export FORUM_DIGEST_EMAIL_SUBJECT="Daily Discussion Digest"
+		 
+export EMAIL_HOST="localhost"
+		 
+		 
+export LMS_URL_BASE="http://localhost:8000"
+		 
+export FORUM_DIGEST_EMAIL_TITLE="Discussion Digest"
+		 
+export US_URL_BASE="http://localhost:8000"
+		 
+		 

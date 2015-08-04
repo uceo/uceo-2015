@@ -1,0 +1,57 @@
+Metadata-Version: 1.1
+Name: django-followit
+Version: 0.0.3
+Summary: A Django application that allows users to follow django model objects
+Home-page: https://github.com/ASKBOT/django-followit
+Author: Evgeny.Fadeev
+Author-email: evgeny.fadeev@gmail.com
+License: BSD License
+Description: The ``followit`` django app allows to easily set up a
+        capability for the site users to follow various things on the site,
+        represented by django model objects.
+        
+        Setup
+        ========
+        
+        To the INSTALLED_APPS in your ``settings.py`` add entry ``'followit'``.
+        Then, in your apps' ``models.py``, probably at the end of the file, add:
+        
+            import followit
+            followit.register(Thing)
+        
+        Once that is done, in your shell run:
+        
+            python manage.py syncdb
+        
+        Not it will be possible for the user to follow instances of ``SomeModel``.
+        
+        If you decide to allow following another model, just add another
+        ``followit.register(...)`` statement to the ``models.py`` and re-run the ``syncdb``.
+        
+        Usage
+        ============
+        
+        Examples below show how to use ``followit`` (assuming that model ``Thing``
+        is registered with ``followit`` in your ``models.py``.
+        
+            bob.follow_thing(x)
+            bob.unfollow_thing(x)
+            things = bob.get_followed_things()
+            x_followers = x.get_followers()
+        
+        Note that ``followit`` does not yet provide view functions of url routing
+        relevant to following or unfollowing items, nor template tags.
+        
+Keywords: follow,database,django
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 2.4
+Classifier: Programming Language :: Python :: 2.5
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: JavaScript
+Classifier: Topic :: Internet :: WWW/HTTP :: WSGI :: Application

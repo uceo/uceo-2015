@@ -1,0 +1,13 @@
+# This file is created and updated by ansible, edit at your peril
+
+export GEM_ROOT="/edx/app/edxapp/.gem"
+                 
+export PATH="/edx/app/edxapp/.rbenv/bin:/edx/app/edxapp/.rbenv/shims:/edx/app/edxapp/.gem/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+                 
+export GEM_HOME="/edx/app/edxapp/.gem"
+                 
+export RBENV_ROOT="/edx/app/edxapp/.rbenv"
+                 
+export HOME="/edx/app/edxapp/.rbenv"
+                 
+eval "$(rbenv init -)"

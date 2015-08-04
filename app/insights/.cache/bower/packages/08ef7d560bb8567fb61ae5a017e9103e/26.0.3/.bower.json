@@ -1,0 +1,29 @@
+{
+  "name": "cldr-data",
+  "main": "index.json",
+  "version": "26.0.3",
+  "homepage": "https://github.com/rxaviers/cldr-data-bower",
+  "authors": [
+    "Rafael Xavier de Souza <rxaviers@gmail.com>"
+  ],
+  "description": "Bower module for Unicode CLDR JSON data",
+  "moduleType": [
+    "amd",
+    "globals"
+  ],
+  "keywords": [
+    "Unicode",
+    "CLDR",
+    "JSON",
+    "data"
+  ],
+  "license": "MIT",
+  "_release": "26.0.3",
+  "_resolution": {
+    "type": "version",
+    "tag": "26.0.3",
+    "commit": "fe673d4bcda2aca04aa5c724812b894fe795cd72"
+  },
+  "_source": "git://github.com/rxaviers/cldr-data-bower.git",
+  "_target": "26.0.3"
+}

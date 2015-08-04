@@ -1,0 +1,22 @@
+Metadata-Version: 2.0
+Name: devpi-common
+Version: 2.0.6
+Summary: utilities jointly used by devpi-server and devpi-client
+Home-page: https://bitbucket.org/hpk42/devpi
+Author: Holger Krekel
+Author-email: holger@merlinux.eu
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: MIT License
+Requires-Dist: requests (>=2.3.0)
+Requires-Dist: py (>=1.4.20)
+
+This package contains utility functions used by devpi-server and devpi-client.
+
+See http://doc.devpi.net for more information.
+
+

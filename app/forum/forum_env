@@ -1,0 +1,23 @@
+# This file is created and updated by ansible, edit at your peril
+
+export LISTEN_HOST="0.0.0.0"
+#export LISTEN_HOST="128.199.187.67"
+export NEW_RELIC_APP_NAME="default_env-default_deployment-forum"
+export DATA_DIR="/edx/var/forum"
+export LISTEN_PORT="4567"
+#export MONGOHQ_URL= "mongodb://128.199.187.67:27017/cs_comments_service" 
+export MONGOHQ_URL= "mongodb://cs_comments_service:password@localhost:27017/cs_comments_service"
+export NEW_RELIC_LICENSE_KEY="SPECIFY_KEY_HERE"
+export GEM_PATH="/edx/app/forum/.gem"
+export RACK_ENV="development"
+export WORKER_PROCESSES="4"
+export NEW_RELIC_ENABLE="False"
+export SINATRA_ENV="development"
+export SEARCH_SERVER="http://localhost:9200"
+export PATH="/edx/app/forum/cs_comments_service/bin:/edx/app/forum/.rbenv/bin:/edx/app/forum/.rbenv/shims:/edx/app/forum/.gem/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+export API_KEY="password"
+export HOME="/edx/app/forum"
+export GEM_HOME="/edx/app/forum/.gem"
+export RBENV_ROOT="/edx/app/forum/.rbenv"
+
+val "$(rbenv init -)"

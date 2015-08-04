@@ -1,0 +1,23 @@
+{
+    "AWS_ACCESS_KEY_ID": "", 
+    "AWS_SECRET_ACCESS_KEY": "", 
+    "DATABASES": {
+        "default": {
+            "ENGINE": "django.db.backends.mysql", 
+            "HOST": "localhost" //"128.199.187.67", 
+            "NAME": "xqueue", 
+            "PASSWORD": "password", 
+            "PORT": "3306", 
+            "USER": "xqueue001"
+        }
+    }, 
+    "RABBITMQ_PASS": "edx", 
+    "RABBITMQ_USER": "edx", 
+    "REQUESTS_BASIC_AUTH": [
+        "edx", 
+        "edx"
+    ], 
+    "USERS": {
+        "lms": "password"
+    }
+}

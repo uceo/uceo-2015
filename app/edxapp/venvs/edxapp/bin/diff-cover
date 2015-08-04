@@ -1,0 +1,10 @@
+#!/edx/app/edxapp/venvs/edxapp/bin/python
+# EASY-INSTALL-ENTRY-SCRIPT: 'diff-cover==0.7.3','console_scripts','diff-cover'
+__requires__ = 'diff-cover==0.7.3'
+import sys
+from pkg_resources import load_entry_point
+
+if __name__ == '__main__':
+    sys.exit(
+        load_entry_point('diff-cover==0.7.3', 'console_scripts', 'diff-cover')()
+    )

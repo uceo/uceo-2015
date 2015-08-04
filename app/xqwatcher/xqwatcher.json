@@ -1,0 +1,7 @@
+{
+    "HTTP_BASIC_AUTH": [
+        "edx", 
+        "edx"
+    ], 
+    "POLL_TIME": 10
+}

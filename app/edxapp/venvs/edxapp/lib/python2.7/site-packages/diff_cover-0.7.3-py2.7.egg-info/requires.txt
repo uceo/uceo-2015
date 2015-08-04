@@ -1,0 +1,5 @@
+Jinja2>=2.7.1
+lazy>=1.1
+six>=1.6.1
+jinja2_pluralize
+pygments>=2.0.1

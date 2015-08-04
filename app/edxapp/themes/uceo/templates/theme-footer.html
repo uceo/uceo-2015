@@ -1,0 +1,29 @@
+## mako
+<%! from django.utils.translation import ugettext as _ %>
+<%! from microsite_configuration.templatetags.microsite import platform_name %>
+<%namespace name='static' file='static_content.html'/>
+
+<footer>
+  <div class="footer-container container">
+    <span class="round-logo"><a href="/" style="text-decoration: none"><img src="${static.url('themes/{theme_name}/images/uceo-round-logo.gif'.format(theme_name=settings.THEME_NAME))}" alt="Theme by UCEO" width="100px"></a></span>
+    <div class="container">
+      <div class="left-side">
+        <ul>
+          <li><a href="${marketing_link('CONTACT')}">Contact Us</a></li>
+          <li><a href="${marketing_link('TOS')}">Terms of Use</a></li>
+          <li><a href="${marketing_link('ABOUT')}">About</a></li>
+          <li><a href="${marketing_link('PRIVACY')}">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <div class="right-side">
+        <ul>
+          <li><a href="http://instagram.com/ciputrauceo" target="blank">UCEO on Instagram</a></li>
+          <li><a href="http://twitter.com/ciputrauceo" target="blank">UCEO on Twitter</a></li>
+          <li><a href="http://facebook.com/groups/uceoc" target="blank">UCEO on FB</a></li>
+          <li><a href="http://uc.ac.id" target="blank">Universitas Ciputra</a></li>
+        </ul>
+      </div>
+      <p class="copyright">${_(u"Copyright© 2015 {platform_name}, All Rights Reserved.").format(platform_name=platform_name())} Powered by openEdx.</p>
+    </div>
+  </div>
+</footer>

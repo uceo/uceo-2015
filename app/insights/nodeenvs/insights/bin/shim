@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+export NODE_PATH=/edx/app/insights/nodeenvs/insights/lib/node_modules
+export NPM_CONFIG_PREFIX=/edx/app/insights/nodeenvs/insights
+export npm_config_prefix=/edx/app/insights/nodeenvs/insights
+exec /edx/app/insights/nodeenvs/insights/bin/node "$@"

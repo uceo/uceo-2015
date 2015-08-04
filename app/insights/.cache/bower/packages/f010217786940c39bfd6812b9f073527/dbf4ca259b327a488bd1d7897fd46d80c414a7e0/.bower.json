@@ -1,0 +1,11 @@
+{
+  "name": "natural-sort",
+  "homepage": "https://github.com/overset/javascript-natural-sort",
+  "_release": "dbf4ca259b",
+  "_resolution": {
+    "type": "commit",
+    "commit": "dbf4ca259b327a488bd1d7897fd46d80c414a7e0"
+  },
+  "_source": "git://github.com/overset/javascript-natural-sort.git",
+  "_target": "dbf4ca259b327a488bd1d7897fd46d80c414a7e0"
+}

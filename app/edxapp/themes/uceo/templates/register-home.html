@@ -1,0 +1,144 @@
+<%! from django.utils.translation import ugettext as _ %>
+<%! from microsite_configuration import microsite %>
+
+<%namespace name='static' file='static_content.html'/>
+
+<%! from django.core.urlresolvers import reverse %>
+<%! from django.utils import html %>
+<%! from django_countries import countries %>
+<%! from django.utils.translation import ugettext as _ %>
+<%! from student.models import UserProfile %>
+<%! from datetime import date %>
+<%! import third_party_auth %>
+<%! from third_party_auth import pipeline, provider %>
+<%! import calendar %>
+
+
+<script type="text/javascript">
+  $(function() {
+
+    // adding js class for styling with accessibility in mind
+    $('body').addClass('js');
+
+    // new window/tab opening
+    $('a[rel="external"], a[class="new-vp"]')
+    .click( function() {
+    window.open( $(this).attr('href') );
+    return false;
+    });
+
+    // form field label styling on focus
+    $("form :input").focus(function() {
+      $("label[for='" + this.id + "']").parent().addClass("is-focused");
+    }).blur(function() {
+      $("label").parent().removeClass("is-focused");
+    });
+
+  });
+
+  (function() {
+    toggleSubmitButton(false);
+
+    $('#register-form').on('submit', function() {
+      console.log('print register');
+      toggleSubmitButton(false);
+    });
+
+    $('#register-form').on('ajax:error', function() {
+      toggleSubmitButton(true);
+    });
+
+    $('#register-form').on('ajax:success', function(event, json, xhr) {
+      var url = json.redirect_url || "${reverse('dashboard')}";
+      location.href = url;
+    });
+
+    $('#register-form').on('ajax:error', function(event, jqXHR, textStatus) {
+      toggleSubmitButton(true);
+      json = $.parseJSON(jqXHR.responseText);
+      $('.status.message.submission-error').addClass('is-shown').focus();
+      $('.status.message.submission-error .message-copy').html(json.value).stop().css("display", "block");
+      $(".field-error").removeClass('field-error');
+      $("[data-field='"+json.field+"']").addClass('field-error')
+    });
+  })(this);
+
+  function thirdPartySignin(event, url) {
+    event.preventDefault();
+    window.location.href = url;
+  }
+
+  function toggleSubmitButton(enable) {
+    var $submitButton = $('form .form-actions #submit');
+
+    if(enable) {
+      $submitButton.
+        removeClass('is-disabled').
+        attr('aria-disabled', false).
+        removeProp('disabled').
+        html("Create My UCEO Account");
+    }
+    else {
+      $submitButton.
+        addClass('is-disabled').
+        prop('disabled', true).
+        text("${_('Processing your account information')}");
+    }
+  }
+
+  function fakeRegister() {
+    location.href='/register?username='+document.getElementById("username").value+'&email='+document.getElementById("email").value;
+  }
+</script>
+
+<section class="register container">
+  <section role="main" class="content">
+    <form role="form" id="register-form" method="get" data-remote="true" onsubmit="fakeRegister()" novalidate>
+      <input type="hidden" name="csrfmiddlewaretoken" value="${ csrf_token }">
+
+      <div class="group group-form group-form-requiredinformation">
+
+        <ol class="list-input">
+          <li class="field required text" id="field-email">
+            <input class="" id="email" type="email" name="email" value="" placeholder="E-Mail: username@domain.com" required aria-required="true" />
+          </li>
+          <li class="field required text" id="field-username">
+            <input id="username" type="text" name="username" value="" placeholder="Username: JaneDoe" required aria-required="true" aria-describedby="username-tip"/>
+          </li>
+        </ol>
+        <span class="tip tip-input">Pastikan semua field terisi dengan data pribadi Anda. Pastikan password yang Anda gunakan, aman.</span>
+
+      </div>
+
+      <div class="group group-form group-form-accountacknowledgements">
+        <h2 class="sr">Account Acknowledgements</h2>
+
+        <ol class="list-input">
+          <li class="field-group">
+
+            <div class="field required checkbox" id="field-tos">
+              <input id="tos-yes" type="checkbox" name="terms_of_service" value="true" required aria-required="true" />
+              <label for="tos-yes">${_('Saya menyetujui seluruh {link_start}Syarat Penggunaan{link_end}').format(
+                link_start='<a href="{url}" class="new-vp" tabindex="-1">'.format(url=marketing_link('TOS')),
+                link_end='</a>')}</label>
+            </div>
+          </li>
+        </ol>
+      </div>
+
+
+% if email_opt_in:
+      <input type="hidden" name="email_opt_in" value="${email_opt_in | h }" />
+% endif
+
+      <div class="form-actions">
+        <button name="submit" type="submit" id="submit" class="action action-primary action-update register-button">${_('Register')} <span class="orn-plus">+</span> ${_('Create My Account')}</button>
+      </div>
+    </form>
+  </section>
+
+  <aside role="complementary">
+
+
+  </aside>
+</section>

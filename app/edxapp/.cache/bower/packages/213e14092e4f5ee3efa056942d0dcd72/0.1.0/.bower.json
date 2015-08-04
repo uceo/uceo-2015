@@ -1,0 +1,15 @@
+{
+  "name": "shape.less",
+  "version": "0.1.0",
+  "main": "less/shape.less",
+  "dependencies": {},
+  "homepage": "https://github.com/fahad19/shape.less",
+  "_release": "0.1.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.1.0",
+    "commit": "dc2aae9d063aca8cd37de42556dfc7afcca2f4ec"
+  },
+  "_source": "git://github.com/fahad19/shape.less.git",
+  "_target": "*"
+}

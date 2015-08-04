@@ -1,0 +1,4 @@
+# This file is created and updated by ansible, edit at your peril
+
+export ANALYTICS_API_CFG="/edx/etc/analytics_api.yml"
+export DJANGO_SETTINGS_MODULE="analyticsdataserver.settings.production"

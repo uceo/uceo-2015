@@ -1,0 +1,7 @@
+#!/edx/app/notifier/virtualenvs/notifier/bin/python -u
+
+import warnings
+warnings.simplefilter('default', DeprecationWarning)
+
+from logilab.common.pytest import run
+run()

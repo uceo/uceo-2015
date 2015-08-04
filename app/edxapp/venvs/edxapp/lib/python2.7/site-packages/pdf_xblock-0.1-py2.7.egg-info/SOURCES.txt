@@ -1,0 +1,13 @@
+pdf/__init__.py
+pdf/pdf.py
+pdf/static/css/pdf.css
+pdf/static/html/pdf_edit.html
+pdf/static/html/pdf_view.html
+pdf/static/js/pdf_edit.js
+pdf/static/js/pdf_view.js
+pdf_xblock.egg-info/PKG-INFO
+pdf_xblock.egg-info/SOURCES.txt
+pdf_xblock.egg-info/dependency_links.txt
+pdf_xblock.egg-info/entry_points.txt
+pdf_xblock.egg-info/requires.txt
+pdf_xblock.egg-info/top_level.txt

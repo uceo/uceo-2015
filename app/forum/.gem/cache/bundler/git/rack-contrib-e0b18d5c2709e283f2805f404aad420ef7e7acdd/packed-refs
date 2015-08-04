@@ -1,0 +1,7 @@
+# pack-refs with: peeled 
+2c2f6bb0c3aaa35bf6912e243e8752eb20f6d770 refs/heads/jsonp-xss-vulnerability
+2daa950d8714957bae6e7724029d196b5e4c8cef refs/heads/master
+91c33b6ed0c4cb0b01b67c660ba740777ffb168b refs/tags/0.9.0
+8bd3c17b235c13f09eb3fdf96d7725fe8748aff7 refs/tags/1.0.0
+3a65d6e84c4c3c2f940cb013112d476467638587 refs/tags/1.0.1
+ee269bd08d652ddbbbf52aaf346201788bf61d12 refs/tags/1.1.0

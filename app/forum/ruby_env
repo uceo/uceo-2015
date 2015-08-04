@@ -1,0 +1,13 @@
+# This file is created and updated by ansible, edit at your peril
+
+export GEM_ROOT="/edx/app/forum/.gem"
+                 
+export PATH="/edx/app/forum/.rbenv/bin:/edx/app/forum/.rbenv/shims:/edx/app/forum/.gem/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+                 
+export GEM_HOME="/edx/app/forum/.gem"
+                 
+export RBENV_ROOT="/edx/app/forum/.rbenv"
+                 
+export HOME="/edx/app/forum/.rbenv"
+                 
+eval "$(rbenv init -)"
