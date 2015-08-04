@@ -1,0 +1,28 @@
+---
+# This file is created and updated by ansible, edit at your peril
+
+ALLOWED_HOSTS:
+- localhost
+CLIENT_ID: CHANGEME
+CLIENT_SECRET: CHANGEME
+DATABASES:
+    default:
+        ENGINE: django.db.backends.mysql
+        HOST: localhost
+        NAME: edx_notes_api
+        PASSWORD: secret
+        PORT: 3306
+        USER: notes001
+DATABASE_OPTIONS:
+    connect_timeout: 10
+DISABLE_TOKEN_CHECK: false
+ELASTICSEARCH_INDEX: edx_notes
+ELASTICSEARCH_URL: http://127.0.0.1:9200
+HAYSTACK_CONNECTIONS:
+    default:
+        ENGINE: notesserver.highlight.ElasticsearchSearchEngine
+        INDEX_NAME: edx_notes_api
+        URL: http://127.0.0.1:9200
+RESULTS_DEFAULT_SIZE: 25
+RESULTS_MAX_SIZE: 250
+SECRET_KEY: CHANGEME

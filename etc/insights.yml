@@ -1,0 +1,52 @@
+---
+# This file is created and updated by ansible, edit at your peril
+
+APPLICATION_NAME: Insights
+CACHES:
+    default:
+        BACKEND: django.core.cache.backends.memcached.MemcachedCache
+        KEY_PREFIX: default_env-default_deployment-insights
+        LOCATION:
+        - localhost:11211
+COURSE_API_URL: URL FOR COURSE API
+DATABASES:
+    default:
+        ENGINE: django.db.backends.mysql
+        HOST: localhost
+        NAME: dashboard
+        PASSWORD: secret
+        PORT: '3306'
+        USER: rosencrantz
+DATABASE_OPTIONS:
+    connect_timeout: 10
+DATA_API_AUTH_TOKEN: YOUR_DATA_API_AUTH_TOKEN
+DATA_API_URL: http://localhost:18010
+DOCUMENTATION_LOAD_ERROR_URL: http://localhost/en/latest/Reference.html#error-conditions
+EMAIL_HOST: smtp.example.com
+EMAIL_HOST_PASSWORD: mail_password
+EMAIL_HOST_USER: mail_user
+EMAIL_PORT: 587
+ENABLE_AUTO_AUTH: false
+FEEDBACK_EMAIL: dashboard@example.com
+HELP_URL: http://localhost/en/latest
+LANGUAGE_CODE: en-us
+LMS_COURSE_SHORTCUT_BASE_URL: URL_FOR_LMS_COURSE_LIST_PAGE
+OPEN_SOURCE_URL: http://set-me-please
+PLATFORM_NAME: edX
+PRIVACY_POLICY_URL: http://example.com/privacy-policy
+RESEARCH_URL: https://www.edx.org/research-pedagogy
+SECRET_KEY: YOUR_SECRET_KEY_HERE
+SEGMENT_IGNORE_EMAIL_REGEX: null
+SEGMENT_IO_KEY: YOUR_KEY
+SOCIAL_AUTH_EDX_OIDC_ID_TOKEN_DECRYPTION_KEY: secret
+SOCIAL_AUTH_EDX_OIDC_KEY: YOUR_OAUTH2_KEY
+SOCIAL_AUTH_EDX_OIDC_SECRET: secret
+SOCIAL_AUTH_EDX_OIDC_URL_ROOT: url_root
+SOCIAL_AUTH_REDIRECT_IS_HTTPS: true
+STATICFILES_DIRS:
+- /edx/app/insights/edx_analytics_dashboard/analytics_dashboard/static
+STATIC_ROOT: /edx/var/insights/staticfiles
+SUPPORT_URL: ''
+TERMS_OF_SERVICE_URL: http://example.com/terms-service
+THEME_SCSS: sass/themes/open-edx.scss
+TIME_ZONE: UTC
