@@ -1,15 +1,14 @@
 <%! from django.utils.translation import ugettext as _ %>
-<script src="https://apis.google.com/js/platform.js?onload=startApp" async defer></script>
+<script src="https://apis.google.com/js/client:plusone.js" async defer></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <script>
-
+    // it's a virtual page view stating that user has successfully registered, intended for goal in GA
     ga('send', 'pageview', {
       'page': '/success_register',
-      'title': 'my overridden page',
-      'hitCallback': function() {
-      }
+      'title': 'Hidden Registration Page',
     });
 
+    // initialize facebook api
     window.fbAsyncInit = function() {
         FB.init({
           appId      : '904362939628972',
@@ -18,14 +17,28 @@
         });
 
         FB.getLoginStatus(function(response) {
-          if (response.status === 'connected') {
-            // and signed request each expire
-            var uid = response.authResponse.userID;
-            var accessToken = response.authResponse.accessToken;
-            if ($('.third-party-auth form').attr("action") != "/auth/disconnect/facebook/?") {
-                window.location.assign('/auth/login/facebook/?auth_entry=dashboard');
+            // check if user has approved and connected with UCEO FB app
+            if (response.status === 'connected') {
+                // and signed request each expire
+                var uid = response.authResponse.userID;
+                var accessToken = response.authResponse.accessToken;
+                if ($('.third-party-auth form').attr("action") != "/auth/disconnect/facebook/?") {
+                    window.location.assign('/auth/login/facebook/?auth_entry=dashboard');
+                }
+            // if not, try checking if user has google account and offer them to connect with google
+            } else {
+                // check email first, if it isn't a google mail, then don't even think to proceed 
+                var email = $('.info--email .data').text();
+                var unlink_google = $('form[name="Google_unlink_form"] a').is(':visible');
+                if (!unlink_google && email.indexOf('gmail') > -1) {
+                    gapi.auth.checkSessionState({'client_id': '372978425690-0hbpckqhvmgkvtrsn39qdhf0s0s0gs5b.apps.googleusercontent.com', 'session_state': null}, function(stateMatched) { 
+                        // if state matched, then user has no session of google, hence, user probably coming with normal registration
+                        if (!stateMatched) {
+                            $('#dont-forget-this').html('<h2 class="title">Kami mendeteksi bahwa Anda menggunakan Google!</h2><p class="activation-message">Anda tidak perlu mengingat password Anda lagi untuk masuk UCEO. Caranya Anda hanya perlu klik <a href="#" onclick="linkGoogle()">di sini</a> dan akun Google Anda akan terhubung secara otomatis dengan UCEO. Namun Anda tetap harus mengaktivasi akun Anda lewat link yang kami kirim ke Email Anda.</p><a href="#" onclick="linkGoogle()">YA! Saya mau menghubungkan akun Google Saya dengan akun UCEO');
+                        }
+                    });
+                }
             }
-          }
         });
       };
     (function(d, s, id){
@@ -36,49 +49,22 @@
          fjs.parentNode.insertBefore(js, fjs);
        }(document, 'script', 'facebook-jssdk'));
 
-    function startApp() {
-        console.log('start google app');
-        // User Submitted Variables
-        var projectName = 'API Project';
-        var metricName = 'compute.googleapis.com/instance/uptime';
-        // var metricName = 'appengine.googleapis.com/system/cpu/usage';
-        var clientId = '372978425690-0hbpckqhvmgkvtrsn39qdhf0s0s0gs5b.apps.googleusercontent.com';
-
-         gapi.load('auth2', function(){
-            auth2 = gapi.auth2.init({
-                client_id: clientId,
-            });
-            auth2 = gapi.auth2.getAuthInstance();
-            auth2.isSignedIn.listen( function() {
-              console.log(auth2.currentUser.get());
-            });
-            auth2.then(function(resp){
-              console.log(auth2.currentUser.get());
-            });
-        });
-    }
-
-
-    
-    
+    function linkGoogle () { window.location.assign('auth/login/google-oauth2/?auth_entry=dashboard'); }
 </script>
+
 <div class="wrapper-msg urgency-high">
     <div class="msg">
         <div class="msg-content">
             <h2 class="title">${_("Terima Kasih sudah Mendaftar bersama UCEO!")}</h2>
             <div class="copy">
                 <p class='activation-message'>${_(
-                    "Sebelum Anda mengikuti pembelajaran di UCEO. Kami telah mengirimkan email aktivasi akun ke {email} Anda. Untuk mengaktivasi akun, Anda hanya perlu klik link di email Anda."
+                    "Sebelum Anda mengikuti pembelajaran di UCEO. Kami telah mengirimkan email aktivasi akun ke {email} Anda. Untuk mengaktivasi akun, Anda hanya perlu klik link di email Anda. Perlu Anda ketahui, walaupun Anda sudah menghubungkan akun UCEO Anda dengan Facebook/Google, Anda tetap harus melakukan aktivasi melalui email Anda."
                     ).format(email="<strong>{}</strong>".format(email), platform_name=platform_name
                     )}
                 </p>
             </div>
             <br/>
-            <h2 class="title">Baca ini jika Anda menggunakan Facebook/Google!</h2>
-            <div class="copy">
-                <p class="activation-message">
-                 Jika Anda menggunakan <strong>Google/Facebook</strong>, <b>pastikan</b> Anda menghubungkan akun Anda dengan klik tombol <strong>LINK</strong> di bagian profil Anda. Dengan menghubungkan akun Anda, Anda tidak perlu lagi mengingat password Anda dan hanya cukup dengan menekan tombol Masuk dengan Facebook/Google, Anda sudah bisa masuk ke akun Anda.
-                </p>
+            <div class="copy" id="dont-forget-this">
             </div>
         </div>
     </div>

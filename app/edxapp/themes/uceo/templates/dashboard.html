@@ -85,9 +85,6 @@
         </li>
         <li class="info--email">
           <span class="title">${_("Email")}
-            % if external_auth_map is None or 'shib' not in external_auth_map.external_domain:
-            (<a href="#change_email" rel="leanModal" class="edit-email">${_("edit")}</a>)
-            % endif
           </span> <span class="data">${ user.email | h }</span>
         </li>
 
@@ -155,13 +152,13 @@
         % endif
 
         % if external_auth_map is None or 'shib' not in external_auth_map.external_domain:
-        <li class="controls--account">
+        <!-- li class="controls--account">
           <span class="title"><a href="#password_reset_complete" rel="leanModal" id="pwd_reset_button">${_("Reset Password")}</a></span>
           <form id="password_reset_form" method="post" data-remote="true" action="${reverse('password_reset')}">
             <input id="id_email" type="hidden" name="email" maxlength="75" value="${user.email}" />
-            <!-- <input type="submit" id="pwd_reset_button" value="${_("Reset Password")}" /> -->
+            <input type="submit" id="pwd_reset_button" value="${_("Reset Password")}" />
           </form>
-        </li>
+        </li -->
         % endif
 
         <%include file='dashboard/_dashboard_status_verification.html' />
